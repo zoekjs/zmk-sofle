@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
-#define NUMB 1
+#define NUMP 1
 #define SYMB 2
 #define TUNE 3
 
@@ -76,7 +76,7 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        tri { if-layers = <NUMB SYMB>; then-layer = <TUNE>; };
+        tri { if-layers = <NUMP SYMB>; then-layer = <TUNE>; };
     };
 
     keymap {
@@ -90,7 +90,7 @@
         // |-------+-----+-----+-----+-----+-----|                   |-----+-----+-----+-----+-----+-------|
         // | CAPS  |  A  |  S  |  D  |  F  |  G  |                   |  H  |  J  |  K  |  L  |  ;  |  '    |
         // |-------+-----+-----+-----+-----+-----|-------.    ,-------|-----+-----+-----+-----+-----+-------|
-        // | LSHIFT|  Z  |  X  |  C  |  V  |  B  |  PGUP |    | PGDN |  N  |  M  |  ,  |  .  |  /  | RSHIFT|
+        // | LSHIFT|  Z  |  X  |  C  |  V  |  B  |       |    |       |  N  |  M  |  ,  |  .  |  /  | RSHIFT|
         // `-------------------------------------/      /     \      \---------------------------------------'
         //            | LCTRL | OPT  | CMD  | SYMB | /SPACE  /       \  BSPC \  |ENTER| OPT  |  =  |  \   |
         //            |       |      |      |      |/       /         \      \ |NUMB |      |     |      |
@@ -98,16 +98,16 @@
         layer0 {
             display-name = "MACOS";
             bindings = <
-&kp ESC        &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
-&kp TAB        &kp Q      &kp W      &kp E      &kp R      &kp T                          &kp Y     &kp U      &kp I      &kp O      &kp P     &kp BSLH
-&kp CLCK       &kp A      &kp S      &kp D      &kp F      &kp G                          &kp H     &kp J      &kp K      &kp L      &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z      &kp X      &kp C      &kp V      &kp B        &none    &none   &mt_n 0 N &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RSHFT
-                             &kp LCTRL  &td_alt    &kp LGUI   &mo SYMB   &kp SPACE          &kp BSPC  &lt_qt NUMB RET  &td_alt    &kp EQUAL  &kp BSLH
+&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &none &kp UP_ARROW &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
+&kp TAB &kp Q &kp W &kp E &kp R &kp T &none &none &kp DOWN_ARROW &kp Y &kp U &kp I &kp O &kp P &kp BSLH
+&kp CLCK &kp A &kp S &kp D &kp F &kp G &none &none &kp LEFT_ARROW &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &none &none &kp RIGHT_ARROW &mt_n 0 N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp LCTRL &td_alt &kp LGUI &mo SYMB &kp SPACE &none &none &none &kp BSPC &lt_qt NUMP RET &td_alt &kp EQUAL &kp BSLH &none
             >;
             sensor-bindings = <&encoder_scroll_h>;
         };
 
-        // Capa NUMB (Números y F keys)
+        // Capa NUMP (Números y F keys)
         // ,-------------------------------------------.                    ,-------------------------------------------.
         // |  F1  | F2  | F3  | F4  | F5  | F6  |                   | F7  | F8  | F9  | F10 | F11 | F12 |
         // |------+-----+-----+-----+-----+-----|                   |-----+-----+-----+-----+-----+-----|
@@ -121,13 +121,13 @@
         //            |      |      |      |      |/     /          \     \ |     |     |     |     |
         //            `----------------------------------'           '------''---------------------------'
         layer_1 {
-            display-name = "NUMB";
+            display-name = "NUMP";
             bindings = <
-&kp F1         &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                           &kp F7      &kp F8      &kp F9      &kp F10     &kp F11    &kp F12
-&kp MINUS      &kp KP_PLUS &kp N7      &kp N8      &kp N9      &kp COMMA                        &kp GT      &kp HOME    &kp UP      &kp END     &none      &kp BSPC
-&kp FSLH       &kp ASTRK   &kp N4      &kp N5      &kp N6      &kp DOT                          &kp LT      &kp LEFT    &kp DOWN    &kp RIGHT   &none      &none
-&kp CIRC       &kp EQUAL   &kp N1      &kp N2      &kp N3      &kp N0        &none    &none    &kp EQUAL   &kp LPAR    &kp RPAR    &none       &none      &none
-                                   &none        &none        &kp LGUI     &lt_qt SYMB RET &none          &none        &none        &none        &none      &none
+&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &none &none &kp UP_ARROW &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+&kp MINUS &kp KP_PLUS &kp N7 &kp N8 &kp N9 &kp COMMA &none &none &kp DOWN_ARROW &kp GT &kp HOME &kp UP &kp END &none &kp BSPC
+&kp FSLH &kp ASTRK &kp N4 &kp N5 &kp N6 &kp DOT &none &none &kp LEFT_ARROW &kp LT &kp LEFT &kp DOWN &kp RIGHT &none &none
+&kp CIRC &kp EQUAL &kp N1 &kp N2 &kp N3 &kp N0 &none &none &kp RIGHT_ARROW &kp EQUAL &kp LPAR &kp RPAR &none &none &none
+&none &none &none &kp LGUI &lt_qt SYMB RET &none &none &none &kp RET &none &none &none &none &none &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
@@ -148,11 +148,11 @@
         layer_2 {
             display-name = "SYMB";
             bindings = <
-&kp GRAVE      &none      &none      &none      &none      &none                            &none      &none      &none      &none      &none      &kp DEL
-&none          &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT                         &kp AMPS   &kp HOME   &kp UP     &kp END    &kp PG_UP  &none
-&none          &kp LBRC   &kp RBRC   &kp LBKT   &kp RBKT   &kp BSLH                          &kp PIPE   &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &none
-&none          &kp LPAR   &kp RPAR   &none      &none      &kp PSCRN      &none    &none    &kp EQUAL  &kp SQT    &none      &kp BSLH   &kp TILDE  &none
-                                   &none        &none        &kp LGUI     &none      &none          &none        &kp LCLK     &none        &none      &none
+&kp GRAVE &none &none &none &none &none &none &none &kp UP_ARROW &none &none &none &none &none &kp DEL
+&none &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &none &none &kp DOWN_ARROW &kp AMPS &kp HOME &kp UP &kp END &kp PG_UP &none
+&none &kp LBRC &kp RBRC &kp LBKT &kp RBKT &kp BSLH &none &none &kp LEFT_ARROW &kp PIPE &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN &none
+&none &kp LPAR &kp RPAR &none &none &kp PSCRN &none &none &kp RIGHT_ARROW &kp EQUAL &kp SQT &none &kp BSLH &kp TILDE &none
+&none &none &none &kp LGUI &none &none &none &none &kp LCLK &none &none &none &none &none &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_DN C_VOL_UP>;
         };
@@ -173,11 +173,11 @@
         layer_3 {
             display-name = "TUNE";
             bindings = <
-&none          &none      &none      &none      &none      &none                            &none      &none      &none      &none      &none      &none
-&bootloader    &none      &none      &none      &none      &none                            &none      &none      &none      &none      &none      &none
-&rgb_ug RGB_OFF &rgb_ug RGB_ON &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_SPI &rgb_ug RGB_SPD  &rgb_ug RGB_BRI &rgb_ug RGB_BRD &none &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
-&none          &none      &none      &none      &none      &none        &none    &none    &none      &none      &none      &none      &sys_reset &bootloader
-                                   &none        &none        &none       &none      &none          &none        &kp LCLK     &none        &none      &none
+&none &none &none &none &none &none &none &none &kp UP_ARROW &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &none &bt BT_CLR
+&bootloader &none &none &none &none &none &none &none &kp DOWN_ARROW &out OUT_USB &out OUT_BLE &none &none &none &none
+&rgb_ug RGB_OFF &rgb_ug RGB_ON &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_SPI &rgb_ug RGB_SPD &none &none &kp LEFT_ARROW &rgb_ug RGB_BRI &rgb_ug RGB_BRD &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none
+&none &none &none &none &none &none &none &none &kp RIGHT_ARROW &none &none &none &none &sys_reset &bootloader
+&none &none &none &none &none &kp LCLK &none &none &none &none &none &none &none &none &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_DN C_VOL_UP>;
         };
