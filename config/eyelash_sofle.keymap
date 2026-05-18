@@ -131,7 +131,7 @@
             bindings = <
 &none        &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_UP     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none         &none       &bt BT_CLR
 &bootloader  &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_DOWN   &out OUT_USB  &out OUT_BLE  &none         &none         &none       &none
-&rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_SPD  &none      &none      &mmv MOVE_LEFT   &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none
+&rgb_ug (RGB_OFF)  &rgb_ug (RGB_ON)  &rgb_ug (RGB_EFF)  &rgb_ug (RGB_EFR)  &rgb_ug (RGB_SPI)  &rgb_ug (RGB_SPD)  &none      &none      &mmv MOVE_LEFT   &rgb_ug (RGB_BRI)  &rgb_ug (RGB_BRD)  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none
 &none        &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_RIGHT  &none         &none         &none         &none         &sys_reset  &bootloader
 &trans       &trans           &trans           &trans           &trans           &mkp LCLK        &none      &none      &trans        &trans        &trans        &trans        &trans        &trans      &none
             >;
