@@ -30,6 +30,41 @@
                        <&macro_tap &kp LS(GRAVE)>,
                        <&macro_tap &kp LS(N)>;
         };
+        dquot: dquot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LS(SQT)>, <&kp SPACE>;
+        };
+        dquots: dquots {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp SQT>, <&kp SPACE>;
+        };
+        dgrv: dgrv {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp GRAVE>, <&kp SPACE>;
+        };
+        dtild: dtild {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LS(GRAVE)>, <&kp SPACE>;
+        };
+        dcirc: dcirc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LS(N6)>, <&kp SPACE>;
+        };
     };
 
     behaviors {
@@ -63,12 +98,33 @@
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
-        td_alt: td_alt {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tap-bindings = <&kp RALT>;
-            hold-bindings = <&kp LALT>;
+        ht_a: ht_a {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+        ht_e: ht_e {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            bindings = <&kp>, <&kp>;
+        };
+        td_q: td_q {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&dquot>, <&dquots>;
+        };
+        td_g: td_g {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            bindings = <&dtild>, <&dgrv>;
         };
         encoder_scroll_h: encoder_scroll_h {
             compatible = "zmk,behavior-sensor-rotate";
@@ -93,11 +149,11 @@
         layer0 {
             display-name = "MACOS";
             bindings = <
-&kp ESC        &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &none      &none      &kp UP_ARROW  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
-&kp TAB        &kp Q      &kp W      &kp E      &kp R      &kp T      &none      &none      &kp DOWN_ARROW &kp Y     &kp U      &kp I      &kp O      &kp P     &kp BSLH
-&kp CLCK       &kp A      &kp S      &kp D      &kp F      &kp G      &none      &none      &kp LEFT_ARROW &kp H     &kp J      &kp K      &kp L      &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z      &kp X      &kp C      &kp V      &kp B      &none      &none      &kp RIGHT_ARROW &mt_n 0 N &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RSHFT
-&kp LCTRL      &td_alt    &kp LGUI   &mo SYMB   &kp SPACE  &none      &none      &none      &kp BSPC       &lt_qt NUMB RET &td_alt    &kp EQUAL  &kp BSLH   &none
+&ht_e DEL ESC  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5       &kp UP_ARROW    &kp N6    &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
+&kp TAB        &kp Q      &kp W      &kp E      &kp R      &kp T        &kp DOWN_ARROW  &kp Y     &kp U      &kp I      &kp O      &kp P     &kp BSLH
+&kp CLCK       &kp A      &kp S      &kp D      &kp F      &kp G        &kp LEFT_ARROW  &kp H     &kp J      &kp K      &kp L      &kp SEMI  &td_q 0 0
+&kp LSHFT      &kp Z      &kp X      &kp C      &kp V      &kp B        &kp RIGHT_ARROW &mt_n 0 N &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RET
+&kp C_MUTE     &kp LCTRL  &ht_a LALT RALT  &kp LGUI  &mo SYMB  &kp SPACE    &kp ENTER       &kp BSPC  &lt_qt NUMB RET &ht_a LALT RALT  &kp EQUAL  &kp RSHFT
             >;
             sensor-bindings = <&encoder_scroll_h>;
         };
@@ -105,11 +161,11 @@
         layer_1 {
             display-name = "NUMB";
             bindings = <
-&kp F1      &kp F2       &kp F3  &kp F4  &kp F5           &kp F6       &none      &none      &mmv MOVE_UP     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11  &kp F12
-&kp MINUS   &kp KP_PLUS  &kp N7  &kp N8  &kp N9           &kp COMMA    &none      &none      &mmv MOVE_DOWN   &kp GT     &kp HOME  &kp UP    &kp END    &none    &kp BSPC
-&kp FSLH    &kp ASTRK    &kp N4  &kp N5  &kp N6           &kp DOT      &none      &none      &mmv MOVE_LEFT   &kp LT     &kp LEFT  &kp DOWN  &kp RIGHT  &none    &none
-&dcirc      &kp EQUAL    &kp N1  &kp N2  &kp N3           &kp N0       &none      &none      &mmv MOVE_RIGHT  &kp EQUAL  &kp LPAR  &kp RPAR  &none      &none    &none
-&trans      &trans       &trans  &kp LGUI  &lt_qt SYMB RET  &trans     &none      &none      &mkp LCLK        &trans     &trans    &trans    &trans     &trans   &none
+&kp F1      &kp F2       &kp F3  &kp F4  &kp F5           &kp F6       &mmv MOVE_UP     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11  &kp F12
+&kp MINUS   &kp KP_PLUS  &kp N7  &kp N8  &kp N9           &kp COMMA    &mmv MOVE_DOWN   &kp GT     &kp HOME  &kp UP    &kp END    &none    &kp BSPC
+&kp FSLH    &kp ASTRK    &kp N4  &kp N5  &kp N6           &kp DOT      &mmv MOVE_LEFT   &kp LT     &kp LEFT  &kp DOWN  &kp RIGHT  &none    &none
+&dcirc      &kp EQUAL    &kp N1  &kp N2  &kp N3           &kp N0       &mmv MOVE_RIGHT  &kp EQUAL  &kp LPAR  &kp RPAR  &none      &none    &none
+&trans      &trans       &trans  &kp LGUI  &lt_qt SYMB RET  &trans  &mkp LCLK   &trans     &trans    &trans    &trans     &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
@@ -117,25 +173,25 @@
         layer_2 {
             display-name = "SYMB";
             bindings = <
-&kp GRAVE    &trans    &trans    &trans    &trans    &trans      &none      &none      &mmv MOVE_UP     &trans     &trans    &trans    &trans     &trans     &kp DEL
-&none        &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT  &none      &none      &mmv MOVE_DOWN   &kp AMPS   &kp HOME  &kp UP    &kp END    &kp PG_UP  &none
-&none        &kp LBRC  &kp RBRC  &kp LBKT  &kp RBKT  &kp BSLH   &none      &none      &mmv MOVE_LEFT   &kp PIPE   &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &none
-&none        &kp LPAR  &kp RPAR  &none     &none     &kp PSCRN  &none      &none      &mmv MOVE_RIGHT  &kp EQUAL  &kp SQT   &none     &kp BSLH   &kp TILDE  &none
-&trans       &trans    &trans    &kp LGUI  &trans    &trans     &none      &none      &mkp LCLK        &trans     &trans    &trans    &trans     &trans     &none
+&td_g 0 0  &trans    &trans    &trans    &trans    &trans      &mmv MOVE_UP     &trans     &trans    &trans    &trans     &trans     &kp DEL
+&none      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT  &mmv MOVE_DOWN   &kp AMPS   &kp HOME  &kp UP    &kp END    &kp PG_UP  &none
+&none      &kp LBRC  &kp RBRC  &kp LBKT  &kp RBKT  &kp BSLH   &mmv MOVE_LEFT   &kp PIPE   &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &none
+&none      &kp LPAR  &kp RPAR  &none     &none     &kp PSCRN  &mmv MOVE_RIGHT  &kp EQUAL  &kp SQT   &none     &kp BSLH   &kp TILDE  &none
+&trans     &trans    &trans    &kp LGUI  &trans    &trans     &mkp LCLK        &trans     &trans    &trans    &trans     &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         layer_3 {
             display-name = "TUNE";
             bindings = <
-&none        &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_UP     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none         &none       &bt BT_CLR
-&bootloader  &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_DOWN   &out OUT_USB  &out OUT_BLE  &none         &none         &none       &none
-&rgb_ug (RGB_OFF)  &rgb_ug (RGB_ON)  &rgb_ug (RGB_EFF)  &rgb_ug (RGB_EFR)  &rgb_ug (RGB_SPI)  &rgb_ug (RGB_SPD)  &none      &none      &mmv MOVE_LEFT   &rgb_ug (RGB_BRI)  &rgb_ug (RGB_BRD)  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none
-&none        &none            &none            &none            &none            &none            &none      &none      &mmv MOVE_RIGHT  &none         &none         &none         &none         &sys_reset  &bootloader
-&trans       &trans           &trans           &trans           &trans           &mkp LCLK        &none      &none      &trans        &trans        &trans        &trans        &trans        &trans      &none
+&none        &none            &none            &none            &none            &none            &mmv MOVE_UP     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none         &none       &bt BT_CLR
+&bootloader  &none            &none            &none            &none            &none            &mmv MOVE_DOWN   &out OUT_USB  &out OUT_BLE  &none         &none         &none       &none
+&rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_SPD  &mmv MOVE_LEFT   &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none
+&none        &none            &none            &none            &none            &none            &mmv MOVE_RIGHT  &none         &none         &none         &none         &sys_reset  &bootloader
+&trans       &trans           &trans           &trans           &trans           &mkp LCLK        &trans        &trans        &trans        &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
