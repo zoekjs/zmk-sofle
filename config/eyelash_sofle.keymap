@@ -21,10 +21,11 @@
             bindings = <&mo>, <&kp>;
         };
         
+        // Scroll horizontal con Shift + Scroll vertical
         encoder_scroll_h: encoder_scroll_h {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&inc_dec_kp C_AC_SCROLL_LEFT C_AC_SCROLL_RIGHT>;
+            bindings = <&kp LS(UP_ARROW)>, <&kp LS(DOWN_ARROW)>;
         };
     };
 
