@@ -53,11 +53,11 @@
             bindings = <
 //  izquierda                                     centro                derecha
     &kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5       &kp UP_ARROW      &kp N6    &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
-    &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T        &kp DOWN_ARROW    &kp Y     &kp U      &kp I      &kp O      &kp P     &kp BSLH
+    &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T        &kp DOWN_ARROW    &kp Y     &kp U      &kp I      &kp O      &kp P     &kp LBKT
     &kp CLCK   &kp A      &kp S      &kp D      &kp F      &kp G        &kp LEFT_ARROW    &kp H     &kp J      &kp K      &kp L      &kp SEMI  &kp SQT
-    &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B        &kp RIGHT_ARROW   &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RET
+    &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B        &kp RIGHT_ARROW   &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RSHFT
 //  pulgares
-                    &kp C_MUTE  &kp LCTRL  &kp LALT  &kp LGUI  &mo SYMB       &kp SPACE  &kp ENTER         &kp BSPC  &lt_qt NUMP RET &kp RALT &kp EQUAL &kp RSHFT
+                    &kp C_MUTE  &kp LCTRL  &kp LALT  &kp LGUI  &mo SYMB       &kp SPACE  &kp ENTER         &kp BSPC  &lt_qt NUMP RET &kp RALT &kp EQUAL &kp BSLH
             >;
             sensor-bindings = <&encoder_scroll_h>;
         };
