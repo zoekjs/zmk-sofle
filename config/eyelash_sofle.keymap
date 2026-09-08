@@ -82,7 +82,7 @@
     &kp GRAVE  &trans     &trans     &trans     &trans     &trans       &mmv MOVE_UP      &trans    &trans    &trans    &trans    &trans    &kp DEL
     &none      &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT    &mmv MOVE_DOWN    &kp AMPS  &kp HOME  &kp UP    &kp END   &kp PG_UP &none
     &none      &kp LBRC   &kp RBRC   &kp LBKT   &kp RBKT   &kp BSLH     &mmv MOVE_LEFT    &kp PIPE  &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &none
-    &none      &kp LPAR   &kp RPAR   &none      &none      &kp PSCRN    &mmv MOVE_RIGHT   &kp EQUAL &kp SQT   &none     &kp BSLH  &kp LS(GRAVE) &none
+    &none      &kp LPAR   &kp RPAR   &none      &none      &kp PSCRN    &mmv MOVE_RIGHT   &kp EQUAL &kp KP_PLUS &none     &kp BSLH  &kp LS(GRAVE) &none
                     &trans     &trans     &trans     &kp LGUI  &trans     &trans   &mkp LCLK         &trans    &trans    &trans    &trans    &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
