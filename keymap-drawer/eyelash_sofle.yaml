@@ -64,7 +64,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', h: NUMB}
   - RGUI
   - $$mdi:apple-keyboard-option$$
-  - {t: \, s: '|'}
+  - $$mdi:apple-keyboard-control$$
   NUMB:
   - F1
   - F2
