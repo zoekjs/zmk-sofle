@@ -25,7 +25,7 @@
         encoder_scroll_h: encoder_scroll_h {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp LS(C_AC_SCROLL_DOWN)>, <&kp LS(C_AC_SCROLL_UP)>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         };
     };
 
