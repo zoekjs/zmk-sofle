@@ -21,7 +21,7 @@
             bindings = <&mo>, <&kp>;
         };
         
-        // Scroll horizontal nativo (rueda del ratón)
+        // Scroll horizontal nativo
         encoder_scroll_h: encoder_scroll_h {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -57,7 +57,7 @@
     &kp CLCK   &kp A      &kp S      &kp D      &kp F      &kp G        &kp LEFT_ARROW    &kp H     &kp J      &kp K      &kp L      &kp SEMI  &kp SQT
     &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B        &kp RIGHT_ARROW   &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RSHFT
 //  pulgares
-                    &kp C_MUTE  &kp LCTRL  &kp LALT  &kp LGUI  &mo SYMB       &kp SPACE  &kp ENTER         &kp BSPC  &lt_qt NUMP RET &kp RALT &kp EQUAL &kp BSLH
+                    &kp C_MUTE  &kp LCTRL  &kp LALT  &kp LGUI  &mo SYMB       &kp SPACE  &kp ENTER         &kp BSPC  &lt_qt NUMP RET &kp RGUI &kp RALT &kp BSLH
             >;
             sensor-bindings = <&encoder_scroll_h>;
         };
